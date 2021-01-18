@@ -1,0 +1,30 @@
+version: "3.2"
+services:
+  apache:
+    build: './apache/'
+    networks:
+      - frontend
+      - backend
+    ports:
+      - "80:80"
+    volumes:
+      - "./public_html/:/var/www/html/:Z"
+  mysql:
+    image: mysql:8.0.22
+    networks:
+      - backend
+    environment:
+      MYSQL_DATABASE: "pinboard_db"
+      MYSQL_USER: "first-class-access"
+      MYSQL_PASSWORD: "1DasManSichMerkenKann.Bitte?"
+      MYSQL_ROOT_PASSWORD: "Noch1DasManSichMerkenKann!"
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    volumes:
+      - "mysql:/var/lib/mysql:rw"
+networks:
+  frontend:
+  backend:
+volumes:
+  mysql: {}
