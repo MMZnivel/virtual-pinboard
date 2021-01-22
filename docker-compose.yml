@@ -22,7 +22,7 @@ services:
       - '3306:3306'
     volumes:
       - "mysqldb:/var/lib/mysql:rw"
-      #- "./docker/mysql/my.cnf:/etc/mysql/my.cnf:Z"
+      - "./docker/mysql/my.cnf:/etc/mysql/my.cnf:Z"
 networks:
   backend:
 volumes:
