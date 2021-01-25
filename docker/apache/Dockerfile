@@ -9,4 +9,5 @@ COPY apache2.conf /usr/local/apache2/conf/apache2.conf
 RUN echo "Include /usr/local/apache2/conf/apache2.conf" \
     >> /usr/local/apache2/conf/httpd.conf
 RUN a2enmod rewrite
-RUN docker-php-ext-install mysqli
+# RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install pdo pdo_mysql

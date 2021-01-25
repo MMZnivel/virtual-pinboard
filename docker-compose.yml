@@ -2,16 +2,12 @@ version: "3.2"
 services:
   apache:
     build: './docker/apache/'
-    networks:
-      - backend
     ports:
       - "80:80"
     volumes:
       - "./:/var/www/html/:Z"
   mysql:
     image: mysql:8.0.22
-    networks:
-      - backend
     environment:
       MYSQL_DATABASE: "pinboard_db"
       MYSQL_USER: "first-class-access"
@@ -22,8 +18,5 @@ services:
       - '3306:3306'
     volumes:
       - "mysqldb:/var/lib/mysql:rw"
-      - "./docker/mysql/my.cnf:/etc/mysql/my.cnf:Z"
-networks:
-  backend:
 volumes:
   mysqldb: {}
