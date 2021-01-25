@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\ViewController;
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
