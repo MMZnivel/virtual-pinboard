@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Position extends Model
+class Note extends Model
 {
     use HasFactory;
 
-    protected $table = "positions";
+    protected $table = "notes";
     protected $primaryKey = "id";
     public $timestamps = false;
 
@@ -19,7 +19,7 @@ class Position extends Model
      * @var array
      */
     protected $fillable = [
-        'x', 'y',
+        'text', 'pos_x', 'pos_y'
     ];
 
     /**

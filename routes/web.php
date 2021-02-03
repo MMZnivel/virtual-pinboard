@@ -17,21 +17,19 @@ use App\Http\Controllers\ViewController;
 */
 
 $router->get('/', function () use ($router) {
-    echo exec('whoami');
-    echo "  ";
+    return view('app');
+});
+
+$router->get('/view/api', [ // this shit
+    'as' => 'leckmichdrecksscheißehier', 
+    'uses' => 'NoteApi@get'
+]);
+
+$router->post('/view/api', [ // this shit
+    'as' => 'post', 
+    'uses' => 'NoteApi@save'
+]);
+
+$router->get('/version', function () use ($router) {
     return $router->app->version();
 });
-
-$router->get('/test[/{param}]', function ($param = null) {
-    return "string++" . $param;
-});
-
-$router->get('/user', [
-    'as' => 'profile', 
-    'uses' => 'ViewController@index'
-]);
-
-$router->get('/dashboard', [
-    'as' => 'dashboard', 
-    'uses' => 'ViewController@dashboard'
-]);
