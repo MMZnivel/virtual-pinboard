@@ -8,41 +8,13 @@
 ## Getting started
 When images are build, connect to "apache" container with
 docker-compose exec apache bash
-and then change owner rights for lumen log files
+- Install laravel/lumen
+composer install
+chown www-data storage/logs
+storage/framework/views
+- Change owner rights for lumen log files
 chown www-data ./storage/logs
 
-Create mysql tables:
-CREATE TABLE positions
-(
-  id INT unsigned NOT NULL AUTO_INCREMENT,
-  x INT NOT NULL,
-  y INT NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY (`x`, `y`)
-);
-
-
-CREATE TABLE notes
-(
-  id              INT unsigned NOT NULL AUTO_INCREMENT,
-  text            VARCHAR(150) NOT NULL,
-  created           TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  updated            TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  position_id           INT unsigned NOT NULL,
-  PRIMARY KEY     (`id`),
-  FOREIGN KEY (`position_id`)
-      REFERENCES `positions`(`id`)
-      ON DELETE CASCADE
-);
-
-
-Add dev table entries:
-INSERT INTO positions (`x`, `y`)
-VALUES (1, 1); 
-
-
-INSERT INTO notes (`text`, `position_id`)
-VALUES ("hi", 1); 
 
 
 # Lumen PHP Framework
