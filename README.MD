@@ -10,10 +10,9 @@ When images are build, connect to "apache" container with
 docker-compose exec apache bash
 - Install laravel/lumen
 composer install
+- Change owner rights for lumen files
 chown www-data storage/logs
-storage/framework/views
-- Change owner rights for lumen log files
-chown www-data ./storage/logs
+chown www-data storage/framework/views
 
 
 
