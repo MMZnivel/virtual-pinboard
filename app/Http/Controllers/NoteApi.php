@@ -17,21 +17,28 @@ class NoteApi extends Controller
     }
 
     public function save(Request $request) {
-        dump('save');
-        dump($this->request);
+        // dump('save');
+        // dump($request->json());
         $noteController = new NoteController();
-        foreach ($this->request as $value) {
-            dd($value);
-            $noteController->save($value['text'], $value['x'], $value['y'], $value['id']);
+        foreach ($request->json() as $value) {
+            // dump($value);
+            $noteController->save($value['id'], $value['text'], $value['pos_x'], $value['pos_y']);
         }
-        return true;
+        return response()->json(true);
     }
 
-    public function save_v2($stuff) { // on save return all notes
+    public function save_v2($stuff) { // Not working!
         $noteController = new NoteController();
         foreach($stuff as $single_stuff) {
             $noteController->save(...$single_stuff);
         }
         return $stuff;
+    } 
+
+    public function delete(Request $request) {
+        // dump('delete');
+        // dump($request->json()->get(0));
+        $noteController = new NoteController();
+        return response()->json($noteController->delete($request->json()->get(0)));
     } 
 }

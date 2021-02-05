@@ -6,9 +6,9 @@ use App\Models\Note;
 
 class NoteController
 {
-    public function save(string $text, int $x, int $y, int $note_id = null) {
-        //  dd(new \DateTime);
-        $note = Note::updateOrCreate(
+    public function save(int $note_id, string $text, int $x, int $y) {
+        // dump("NoteController", "save", $note_id, $text, $x, $y);
+        Note::updateOrCreate(
             ['id' => $note_id],
             [
                 'text' => $text,
@@ -17,7 +17,7 @@ class NoteController
             ]
         );
 
-        dd($note);
+        // dump($note);
         
        // $note = $note_id ? $this->update($note_id, $text, $x, $y) : $note = $this->create($text, $x, $y);
        // $note->save();
@@ -41,14 +41,14 @@ class NoteController
         return $note;
     }
     */
-    private function delete(int $id) {
-        $foo = Note::find($id);
-        $deleted_id = $foo->id;
-        $foo->delete();
-        $note = Note::whereId($deleted_id)->first();
+    public function delete(int $id) {
+        $note = Note::find($id);
         if($note == null) {
-            return null;
+            return false;
         }
+        $note->delete();
+
+        return true;
 
     }
 
@@ -59,6 +59,5 @@ class NoteController
             $notes[] = $note->getAttributes();
         }
         return $notes;
-        // return Note::with('position')->get();
     }
 }

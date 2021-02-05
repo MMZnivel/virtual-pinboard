@@ -9,6 +9,8 @@
 </head>
 <body>
     <h1 id="test_1">My App</h1>
+    <button id="save_test_1">save</button>
+    <button id="delete_test_1">delete</button>
     <div id="app"></div>
     <script src="main.js"></script>
 </body>

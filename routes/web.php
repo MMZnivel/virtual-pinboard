@@ -20,14 +20,19 @@ $router->get('/', function () use ($router) {
     return view('app');
 });
 
-$router->get('/view/api', [ // this shit
-    'as' => 'leckmichdrecksscheißehier', 
+$router->get('/view/api', [
+    'as' => 'get', 
     'uses' => 'NoteApi@get'
 ]);
 
-$router->post('/view/api', [ // this shit
+$router->post('/view/api', [
     'as' => 'post', 
     'uses' => 'NoteApi@save'
+]);
+
+$router->delete('/view/api', [
+    'as' => 'delete', 
+    'uses' => 'NoteApi@delete'
 ]);
 
 $router->get('/version', function () use ($router) {
