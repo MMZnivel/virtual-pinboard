@@ -1,0 +1,9 @@
+{
+    "name": "virtual-pinboard",
+    "version": "0.0.1",
+    "description": "A learning project with current frameworks",
+    "private": true,
+    "dependencies": {
+        "interactjs": "^1.10.2"
+    }
+}
