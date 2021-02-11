@@ -1,0 +1,46 @@
+.container {
+    display: grid;
+    grid-template-columns: repeat(5, 115px);
+    gap: 10px;
+}
+
+.box {
+    border: 3px solid #666;
+    background-color: #ddd;
+    border-radius: .5em;
+    padding: 5px;
+    width: 100px;
+    height: 150px;
+    cursor: move;
+}
+
+textarea {
+    width: 100px;
+    height: 115px;
+}
+
+#drag-1, #drag-2 {
+    width: 25%;
+    min-height: 6.5em;
+    margin: 1rem 0 0 1rem;
+    background-color: #29e;
+    color: white;
+    border-radius: 0.75em;
+    padding: 4%;
+    touch-action: none;
+    user-select: none;
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+}
+
+.draggable {
+    width: 25%;
+    min-height: 6.5em;
+    margin: 1rem 0 0 1rem;
+    background-color: #29e;
+    color: white;
+    border-radius: 0.75em;
+    padding: 4%;
+    touch-action: none;
+    user-select: none;
+  }
